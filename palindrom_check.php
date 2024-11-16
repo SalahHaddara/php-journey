@@ -17,3 +17,9 @@ if (isPalindrom($word)) {
 } else {
     echo "$word is not a palindrom";
 }
+$word = "yhxc";
+if (isPalindrom($word)) {
+    echo "$word is a palindrom";
+} else {
+    echo "$word is not a palindrom";
+}
