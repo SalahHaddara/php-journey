@@ -34,4 +34,27 @@ class LinkedList
             $current->next = $newNode;
         }
     }
+
+    public function printNodesWithTwoVowels()
+    {
+        $current = $this->head;
+        while ($current !== null) {
+            if ($this->countVowels($current->value) == 2) {
+                echo $current->value . "\n";
+            }
+            $current = $current->next;
+        }
+    }
+
+    private function countVowels($str)
+    {
+        $vowels = "aeiouAEIOU";
+        $count = 0;
+        for ($i = 0; $i < strlen($str); $i++) {
+            if (str_contains($vowels, $str[$i])) {
+                $count++;
+            }
+        }
+        return $count;
+    }
 }
