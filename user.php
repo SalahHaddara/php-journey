@@ -2,7 +2,7 @@
 
 class User
 {
-    private string $username;
+    public string $username;
     private string $email;
     private string $password;
 
@@ -50,3 +50,12 @@ class User
         );
     }
 }
+
+$user = new User("salah_haddara", "salah@haddara.com", "Salah123!");
+
+echo User::checkPassword("Salah123!") ? "Password is valid\n" : "Password is invalid\n";
+
+echo User::validateEmail("salah@haddara.com") ? "Email is valid\n" : "Email is invalid\n";
+
+$newUser = $user->copyWith("Mohammad");
+echo $newUser->username;
