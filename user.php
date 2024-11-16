@@ -33,4 +33,20 @@ class User
 
         return true;
     }
+
+    public static function validateEmail(string $email)
+    {
+        $isValid = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+        return $isValid !== false;
+    }
+
+    public function copyWith(?string $username = null, ?string $email = null, ?string $password = null)
+    {
+        return new User(
+            $username ?? $this->username,
+            $email ?? $this->email,
+            $password ?? $this->password
+        );
+    }
 }
