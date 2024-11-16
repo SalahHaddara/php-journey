@@ -34,3 +34,8 @@ function merge($left, $right)
 
     return array_merge($result, array_slice($left, $i), array_slice($right, $j));
 }
+
+$array = [5, 2, 9, 1, 5, 6];
+$sortedArray = mergeSort($array);
+echo "Sorted Array: ";
+print_r($sortedArray);
