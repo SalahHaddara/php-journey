@@ -58,3 +58,12 @@ class LinkedList
         return $count;
     }
 }
+
+$linkedList = new LinkedList();
+$linkedList->append("apple");
+$linkedList->append("car");
+$linkedList->append("grape");
+
+echo "Nodes with exactly 2 vowels:\n";
+$linkedList->printNodesWithTwoVowels();
+
