@@ -1,10 +1,37 @@
 <?php
 function isPalindrom($palindrom)
 {
-    $palindrom = strtolower($palindrom);
+    function toLowerCase($string)
+    {
+        $result = '';
+        for ($i = 0; $i < strlen($string); $i++) {
+            $char = $string[$i];
+            if ($char >= 'A' && $char <= 'Z') {
+                $result .= chr(ord($char) + 32);
+            } else {
+                $result .= $char;
+            }
+        }
+        return $result;
+    }
 
-    for ($i = 0; $i < strlen($palindrom) / 2; $i++) {
-        if ($palindrom[$i] !== $palindrom[strlen($palindrom) - $i - 1]) {
+    $palindrom = toLowerCase($palindrom);
+
+
+    function stringLength($string)
+    {
+        $length = 0;
+        while (true) {
+            if ($string[$length] === null) {
+                break;
+            }
+            $length++;
+        }
+        return $length;
+    }
+
+    for ($i = 0; $i < stringLength($palindrom) / 2; $i++) {
+        if ($palindrom[$i] !== $palindrom[stringLength($palindrom) - $i - 1]) {
             return false;
         }
     }
