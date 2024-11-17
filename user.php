@@ -34,11 +34,15 @@ class User
         return true;
     }
 
-    public static function validateEmail(string $email)
+    public static function validateEmail($email)
     {
-        $isValid = filter_var($email, FILTER_VALIDATE_EMAIL);
+        $pattern = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
 
-        return $isValid !== false;
+        if (preg_match($pattern, $email)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function copyWith(?string $username = null, ?string $email = null, ?string $password = null)
